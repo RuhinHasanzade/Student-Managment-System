@@ -25,6 +25,12 @@ public class StudentImpl implements StudentInterface{
 
     @Override
     public List<Student> getAllStudent() {
-        return null;
+        if (DataBase.students.isEmpty()) {
+            System.out.println("Student tapilmadi!1");
+        }else {
+            DataBase.students.forEach(System.out::println);
+        }
+
+        return DataBase.students;
     }
 }

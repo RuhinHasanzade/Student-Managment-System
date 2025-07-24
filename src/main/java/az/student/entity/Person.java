@@ -1,12 +1,14 @@
 package az.student.entity;
 
+import az.student.database.DataBase;
+
 abstract class Person {
     private int id;
     private String fullName;
     private int age;
 
-    public Person(int id, String fullName, int age) {
-        this.id = id;
+    public Person( String fullName, int age) {
+        this.id = DataBase.students.size() + DataBase.teachers.size() + 1;
         this.fullName = fullName;
         this.age = age;
     }

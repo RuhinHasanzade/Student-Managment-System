@@ -3,8 +3,8 @@ package az.student.entity;
 public class Teacher extends Person{
     private int salary;
 
-    public Teacher(int id, String fullName, int age, int salary) {
-        super(id, fullName, age);
+    public Teacher(String fullName, int age, int salary) {
+        super(fullName, age);
         this.salary = salary;
     }
 
