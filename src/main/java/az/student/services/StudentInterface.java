@@ -6,6 +6,6 @@ import java.util.List;
 
 public interface StudentInterface {
     void addStudent(Student student);
-    void deleteStudent(Student student);
+    void deleteStudent(int id);
     List<Student> getAllStudent();
 }
