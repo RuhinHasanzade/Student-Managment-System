@@ -3,12 +3,17 @@ package az.student.util;
 import az.student.database.DataBase;
 import az.student.entity.Student;
 import az.student.entity.Teacher;
+import az.student.services.StudentImpl;
+import az.student.services.StudentInterface;
+import az.student.services.TeacherImpl;
+import az.student.services.TeacherInterface;
 
 import java.util.PropertyResourceBundle;
 
 public class MenuUtil {
     public static void startMenu() {
-        System.out.println("""
+        while (true) {
+            System.out.println("""
                 ---------------XOS GELMISIZ---------------
                 1. TELEBE ELAVE ET
                 2. TELEBELERI GOSTER
@@ -17,11 +22,27 @@ public class MenuUtil {
                 5. EXIT
                 """);
 
+            int selectedMenu = InputUtil.getInt("Menudan Secim Et: ");
+            if (selectedMenu == 1) {
+                addStudentMenu();
+            }else if(selectedMenu == 2) {
+                StudentInterface studentInterface = new StudentImpl();
+                studentInterface.getAllStudent();
+            } else if (selectedMenu == 3) {
+                addTeacherMenu();
+            } else if (selectedMenu == 4) {
+                TeacherInterface teacherInterface = new TeacherImpl();
+                teacherInterface.getAllTeacher();
+            }else {
+                System.exit(0);
+            }
+        }
+
 
     }
 
     private static void addStudentMenu() {
-        System.out.print("---------------TELEBE ELAVE ET---------------");
+        System.out.println("---------------TELEBE ELAVE ET---------------");
         String studentName =   InputUtil.getString("Telebe adi dagil edin: ");
         int studentAge = InputUtil.getInt("Telebenin yasin dagil edin: ");
         int studentScholar = InputUtil.getInt("Telebenin teqaudun dagil edin: ");
@@ -32,7 +53,7 @@ public class MenuUtil {
     }
 
     private static void addTeacherMenu() {
-        System.out.print("---------------MUELLIM ELAVE ET---------------");
+        System.out.println("---------------MUELLIM ELAVE ET---------------");
         String teacherName =   InputUtil.getString("Muellim adi dagil edin: ");
         int teacherAge = InputUtil.getInt("Muellimn yasin dagil edin: ");
         int teachersalary = InputUtil.getInt("Muellimin maasin dagil edin: ");

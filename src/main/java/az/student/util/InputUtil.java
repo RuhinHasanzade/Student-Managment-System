@@ -6,7 +6,9 @@ public class InputUtil {
     private  static Scanner sc = new Scanner(System.in);
     public static int getInt(String text) {
         System.out.print(text);
-        return sc.nextInt();
+        int number = sc.nextInt();
+        sc.nextLine();
+        return number ;
     }
 
     public static String getString(String text) {
